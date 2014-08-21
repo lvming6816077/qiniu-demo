@@ -113,6 +113,7 @@ function Qiniu_Client_incBody($req) // => $incbody
 
 function Qiniu_Client_do($req) // => ($resp, $error)
 {
+
 	$ch = curl_init();
 	$url = $req->URL;
 	$options = array(
@@ -261,13 +262,17 @@ function Qiniu_Client_CallWithForm(
 	$u = array('path' => $url);
 	if ($contentType === 'application/x-www-form-urlencoded') {
 		if (is_array($params)) {
+
 			$params = http_build_query($params);
 		}
 	}
+
 	$req = new Qiniu_Request($u, $params);
+
 	if ($contentType !== 'multipart/form-data') {
 		$req->Header['Content-Type'] = $contentType;
 	}
+
 	list($resp, $err) = $self->RoundTrip($req);
 	if ($err !== null) {
 		return array(null, $err);
@@ -287,7 +292,6 @@ function Qiniu_Build_MultipartForm($fields, $files) // => ($contentType, $body)
 {
 	$data = array();
 	$mimeBoundary = md5(microtime());
-
 	foreach ($fields as $name => $val) {
 		array_push($data, '--' . $mimeBoundary);
 		array_push($data, "Content-Disposition: form-data; name=\"$name\"");

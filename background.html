@@ -3,24 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    
+    <style type="text/css">
+        .conf-table {
+            padding: 4px;
+        }
+        .conf-table {
+            table-layout: fixed;
+            text-align: left;
+        }
+        .token-panel {
+            margin-top: 10px;
+            padding: 10px;
+        }
+        h3 {
+            margin: 0;
+        }
+        img {
+            width: 175px;
+        }
+        .loading {
+            display: none;
+            background: red;
+        }
+        label {
+            display: block;
+        }
+        .token-panel input {
+            display: none;
+            margin-top: 5px;
+        }
+        
+        .token-value {
+            padding-top: 5px;
+            font-size: 14px;
+        }
+        #accessKey, #secretKey, .accessKey, .secretKey {
+            width: 340px;
+        }
+        #spaceName, .spaceName {
+            width:80px;
+        }
+        
+    </style>
 </head>
 <body>
     <div class="set-token">
-        <h3>first use</h3>
-        <div>
+        <h3>配置信息</h3>
+        <div class="token-panel">
             <label>accessKey:</label>
-            <input type="text" id="accessKey">
-            <label>secretKey:</label>
-            <input type="text" id="secretKey">
-            <label>space:</label>
-            <input type="text" id="spaceName">
-            <button id="submit">submit</button>
+            <span class="token-value" id="accessKey_value">a4UIWOIX6L49ohUM9KHetcFndgZGodOhgFTTHUm2</span>
+            <input class="token-input" type="text" id="accessKey" value="a4UIWOIX6L49ohUM9KHetcFndgZGodOhgFTTHUm2">
         </div>
+        <div class="token-panel">
+            <label>secretKey:</label>
+            <span class="token-value" id="accessKey_value">ozB7nR_AbwQR2qvbDRJxi5vyrfPvtK7xCcmh7hYQ</span>
+            <input class="token-input" type="text" id="secretKey" value="ozB7nR_AbwQR2qvbDRJxi5vyrfPvtK7xCcmh7hYQ">
+        </div>
+        <div class="token-panel">
+            <label>spaceName:</label>
+            <span class="token-value" id="spaceName_value">tenny</span>
+            <input class="token-input" type="text" id="spaceName" value="tenny">
+        </div>
+        
+    </div>
+    <div class="image-detail">
+        <h3>Image信息</h3>
+        <div class="detail-panel">
+            <label>FileName:</label>
+            <input type="text" id="fileName">
+        </div>
+        <img class="image-info"/>
+        <img class="loading" src="http://www.dglives.com/demo/loading-master/loading-spin.svg">
+        <button id="submit">Upload</button>
+    </div>
+    <div class="result-detail">
+        <h3>Result信息</h3>
+        <div class="result-panel">
+            <label>url:</label>
+            <a target="blank" class="result-url">查看图片</a>
+        </div>
+        <div class="result-panel">
+            <label>hash:</label>
+            <p class="result-hash"></p>
+        </div>
+        
     </div>
 <script type="text/javascript" src="lib/jquery.min.js"></script>
-<script type="text/javascript" src="lib/CryptoJS.js"></script>
-<script type="text/javascript" src="lib/token.js"></script>
 <script type="text/javascript" src="image.js"></script>
 </body>
 
